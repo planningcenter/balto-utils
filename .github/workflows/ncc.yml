@@ -20,7 +20,7 @@ jobs:
           cache: npm
           cache-dependency-path: ncc/package-lock.json
       - run: npm ci
-      - uses: planningcenter/balto-utils/ncc@ns/ncc
+      - uses: planningcenter/balto-utils/ncc@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: ncc
