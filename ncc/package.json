@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/planningcenter/balto-utils/issues"
   },
-  "homepage": "https://github.com/planningcenter/balto-utils/tree/main/ncc"
+  "homepage": "https://github.com/planningcenter/balto-utils/tree/main/ncc",
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0"
+  }
 }
