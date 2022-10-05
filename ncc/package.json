@@ -1,0 +1,30 @@
+{
+  "name": "ncc",
+  "version": "0.1.0",
+  "description": "Build with @vercel/ncc and commit built files",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planningcenter/balto-utils.git"
+  },
+  "keywords": [],
+  "author": "Planning Center",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/planningcenter/balto-utils/issues"
+  },
+  "homepage": "https://github.com/planningcenter/balto-utils/tree/main/ncc",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.2",
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.8.4"
+  }
+}

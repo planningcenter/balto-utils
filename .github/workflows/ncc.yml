@@ -1,21 +1,14 @@
-# balto-utils
-Utilities and sub-actions for our GitHub actions
-
-## ncc
-
-Automatically compiles and commits built files with ncc if build files were not
-updated.
-
-### Sample config
-
-```yml
 name: ncc
+
 on:
   push:
     paths:
-      # Include any files that could require rebuilding
-      - 'package-lock.json'
-      - 'src/**'
+      - 'ncc/package-lock.json'
+      - 'ncc/src/**'
+
+defaults:
+  run:
+    working-directory: ncc
 
 jobs:
   build:
@@ -24,10 +17,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          # Or "yarn" instead
           cache: npm
+          cache-dependency-path: ncc/package-lock.json
       - run: npm ci
       - uses: planningcenter/balto-utils/ncc@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-```
+          directory: ncc
