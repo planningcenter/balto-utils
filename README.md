@@ -23,9 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        with:
-          # Or "yarn" instead
-          cache: npm
       - run: npm ci
       - uses: planningcenter/balto-utils/ncc@main
         with:

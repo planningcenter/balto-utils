@@ -16,9 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        with:
-          cache: npm
-          cache-dependency-path: ncc/package-lock.json
       - run: npm ci
       - uses: planningcenter/balto-utils/ncc@main
         with:
