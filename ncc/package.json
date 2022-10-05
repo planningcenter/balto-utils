@@ -2,10 +2,10 @@
   "name": "ncc",
   "version": "0.1.0",
   "description": "Build with @vercel/ncc and commit built files",
-  "main": "index.js",
+  "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ncc build index.js"
+    "build": "ncc build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/planningcenter/balto-utils/tree/main/ncc",
   "devDependencies": {
-    "@vercel/ncc": "^0.34.0"
+    "@vercel/ncc": "^0.34.0",
+    "typescript": "^4.8.4"
   }
 }
