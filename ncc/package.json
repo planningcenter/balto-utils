@@ -18,11 +18,11 @@
     "url": "https://github.com/planningcenter/balto-utils/issues"
   },
   "homepage": "https://github.com/planningcenter/balto-utils/tree/main/ncc",
+  "dependencies": {
+    "@actions/core": "^1.10.0"
+  },
   "devDependencies": {
     "@vercel/ncc": "^0.34.0",
     "typescript": "^4.8.4"
-  },
-  "dependencies": {
-    "@actions/core": "^1.10.0"
   }
 }
