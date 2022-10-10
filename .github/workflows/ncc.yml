@@ -20,4 +20,4 @@ jobs:
       - uses: planningcenter/balto-utils/ncc@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: ncc
+          root-directory: ncc

@@ -7,6 +7,6 @@ inputs:
   github_token:
     description: required to push the built files
     required: true
-  directory:
+  root-directory:
     description: optional sub-directory to use
     required: false

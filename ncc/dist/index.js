@@ -4010,7 +4010,7 @@ function run() {
             yield (0, exec_1.exec)('git', ['config', '--local', 'user.name', 'GitHub Action']);
             yield (0, exec_1.exec)('git', ['config', '--local', 'user.email', 'action@github.com']);
             core.info(`Starting working directory: ${process.cwd()}`);
-            const customWorkingDir = core.getInput('directory');
+            const customWorkingDir = core.getInput('root-directory');
             if (customWorkingDir) {
                 const fullWorkingDir = path_1.default.resolve(customWorkingDir);
                 core.info(`Changing directory to: ${fullWorkingDir}`);

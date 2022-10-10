@@ -16,7 +16,7 @@ async function run() {
 
     core.info(`Starting working directory: ${process.cwd()}`)
 
-    const customWorkingDir = core.getInput('directory')
+    const customWorkingDir = core.getInput('root-directory')
     if (customWorkingDir) {
       const fullWorkingDir = path.resolve(customWorkingDir)
       core.info(`Changing directory to: ${fullWorkingDir}`)
