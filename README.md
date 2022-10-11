@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - run: npm ci
-      - uses: planningcenter/balto-utils/ncc@main
+      - uses: planningcenter/balto-utils/ncc@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
