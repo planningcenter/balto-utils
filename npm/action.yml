@@ -18,7 +18,7 @@ runs:
         key: ${{ runner.os }}-${{ inputs.nodeVersion }}-node-modules-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
             ${{ runner.os }}-${{ inputs.nodeVersion }}-node-modules-
-    - run: npm i
+    - run: npm ci
       shell: bash
 inputs:
   nodeVersion:
