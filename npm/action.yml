@@ -19,6 +19,7 @@ runs:
         restore-keys: |
             ${{ runner.os }}-${{ inputs.nodeVersion }}-node-modules-
     - run: npm ci
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
       shell: bash
 inputs:
   nodeVersion:
