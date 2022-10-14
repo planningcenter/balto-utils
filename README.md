@@ -12,6 +12,9 @@ updated.
 name: ncc
 on:
   push:
+    tags-ignore:
+      # Can't push a build commit to a tag, so ignore them all
+      - '**'
     paths:
       # Include any files that could require rebuilding
       - 'package-lock.json'

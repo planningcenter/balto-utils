@@ -4038,12 +4038,7 @@ function run() {
             core.endGroup();
         }
         catch (error) {
-            if (error instanceof Error) {
-                core.setFailed(`ncc failed! ${error.message}`);
-            }
-            else {
-                core.setFailed('ncc failed! Unable to read error.');
-            }
+            core.setFailed(`ncc was not successful: ${error}`);
         }
     });
 }
