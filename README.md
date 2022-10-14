@@ -29,6 +29,25 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+## yarn
+
+Sets up a node environment with dependencies installed using yarn. Dependency libraries
+are cached.
+
+### Sample config
+
+```yml
+name: 'Run Tests'
+on: [push]
+
+jobs:
+  runTests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: planningcenter/balto-utils/yarn@v1
+      - run: yarn test
+```
+
 ## npm
 
 Sets up a node environment with dependencies installed using npm. Dependency libraries
