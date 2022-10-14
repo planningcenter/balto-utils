@@ -50,3 +50,21 @@ jobs:
       - uses: planningcenter/balto-utils/yarn@v1
       - run: yarn test
 ```
+
+## npm
+
+Sets up a node environment with dependencies installed using npm. Dependency libraries
+are cached.
+
+### Sample config
+
+```yml
+name: 'Run Tests'
+on: [push]
+jobs:
+  runTests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: planningcenter/balto-utils/npm@v1
+      - run: npm run-script test
+```
