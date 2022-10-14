@@ -2,6 +2,8 @@ name: ncc
 
 on:
   push:
+    tags-ignore:
+      - '**'
     paths:
       - 'ncc/package-lock.json'
       - 'ncc/src/**'
