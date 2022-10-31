@@ -1,6 +1,11 @@
 # balto-utils
 Utilities, composite actions, and reusable workflows for our GitHub actions
 
+- [ncc](#ncc)
+- [yarn](#yarn)
+- [npm](#npm)
+- [release-tagger](#release-tagger)
+
 ## ncc
 
 Automatically compiles and commits built files with ncc if build files were not
