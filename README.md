@@ -1,5 +1,5 @@
 # balto-utils
-Utilities and sub-actions for our GitHub actions
+Utilities, composite actions, and reusable workflows for our GitHub actions
 
 ## ncc
 
