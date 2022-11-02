@@ -1,0 +1,14 @@
+name: ncc
+
+on: workflow_call
+
+jobs:
+  ncc-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - uses: planningcenter/balto-utils/ncc@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
