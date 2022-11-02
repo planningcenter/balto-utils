@@ -1,5 +1,10 @@
 # balto-utils
-Utilities and sub-actions for our GitHub actions
+Utilities, composite actions, and reusable workflows for our GitHub actions
+
+- [ncc](#ncc)
+- [yarn](#yarn)
+- [npm](#npm)
+- [release-tagger](#release-tagger)
 
 ## ncc
 
@@ -67,4 +72,24 @@ jobs:
     steps:
       - uses: planningcenter/balto-utils/npm@v1
       - run: npm run-script test
+```
+
+## release-tagger
+
+Composes other actions to move major (v1) and minor (v1.2) semver version tags
+when a fully qualified (v1.2.3) tag is created.
+
+### Sample Config
+
+```yml
+name: Release Tagger
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  release-tagger:
+    uses: planningcenter/balto-utils/.github/workflows/release-tagger.yml@v1
 ```
