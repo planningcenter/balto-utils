@@ -11,7 +11,28 @@ Utilities, composite actions, and reusable workflows for our GitHub actions
 Automatically compiles and commits built files with ncc if build files were not
 updated.
 
-### Sample config
+### Simple config (requires using npm)
+
+```yml
+name: ncc
+on:
+  push:
+    # Can't push a build commit to a tag, so only run for branches
+    branches:
+      - '**'
+    paths:
+      # Include any files that could require rebuilding
+      - 'package-lock.json'
+      - 'src/**'
+
+jobs:
+  ncc-build:
+    uses: planningcenter/balto-utils/.github/workflows/ncc.yml@v1
+```
+<details>
+<summary>
+<h3>Advanced config</h3>
+</summary>
 
 ```yml
 name: ncc
@@ -36,6 +57,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
+</details>
 
 ## yarn
 

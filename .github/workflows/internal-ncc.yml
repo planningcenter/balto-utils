@@ -1,0 +1,25 @@
+name: ncc
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'ncc/package-lock.json'
+      - 'ncc/src/**'
+
+defaults:
+  run:
+    working-directory: ncc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - uses: planningcenter/balto-utils/ncc@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          root-directory: ncc
