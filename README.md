@@ -71,7 +71,7 @@ name: 'Run Tests'
 on: [push]
 
 jobs:
-  runTests:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: planningcenter/balto-utils/yarn@v1
@@ -89,7 +89,7 @@ are cached.
 name: 'Run Tests'
 on: [push]
 jobs:
-  runTests:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: planningcenter/balto-utils/npm@v1
