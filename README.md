@@ -27,7 +27,7 @@ on:
 
 jobs:
   ncc-build:
-    uses: planningcenter/balto-utils/.github/workflows/ncc.yml@v1
+    uses: planningcenter/balto-utils/.github/workflows/ncc.yml@v2
 ```
 <details>
 <summary>
@@ -50,10 +50,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
       - run: npm ci
-      - uses: planningcenter/balto-utils/ncc@v1
+      - uses: planningcenter/balto-utils/ncc@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -74,7 +74,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: planningcenter/balto-utils/yarn@v1
+      - uses: planningcenter/balto-utils/yarn@v2
       - run: yarn test
 ```
 
@@ -92,7 +92,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: planningcenter/balto-utils/npm@v1
+      - uses: planningcenter/balto-utils/npm@v2
       - run: npm run-script test
 ```
 
@@ -113,5 +113,5 @@ on:
 
 jobs:
   release-tagger:
-    uses: planningcenter/balto-utils/.github/workflows/release-tagger.yml@v1
+    uses: planningcenter/balto-utils/.github/workflows/release-tagger.yml@v2
 ```
