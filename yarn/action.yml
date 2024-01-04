@@ -3,26 +3,27 @@ description: "Sets up JavaScript packages using Yarn"
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v4
       with:
-        node-version: ${{ inputs.nodeVersion }}
+        node-version: ${{ inputs.node-version }}
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v3
       with:
         path: node_modules
-        key: ${{ runner.os }}-${{ inputs.nodeVersion }}-node-modules-${{ hashFiles('**/yarn.lock') }}
+        key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-            ${{ runner.os }}-${{ inputs.nodeVersion }}-node-modules-
+            ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
     - run: yarn install --frozen-lockfile --prefer-offline --immutable
       shell: bash
 inputs:
-  nodeVersion:
+  node-version:
+    description: Version of node to use
     required: false
-    default: '16'
+    default: '18'
 branding:
   icon: life-buoy
   color: orange
