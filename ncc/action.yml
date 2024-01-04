@@ -1,7 +1,7 @@
 name: ncc
 description: Build with @vercel/ncc and commit built files
 runs:
-  using: node16
+  using: node20
   main: dist/index.js
 inputs:
   github_token:
