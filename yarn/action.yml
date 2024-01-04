@@ -23,7 +23,7 @@ inputs:
   node-version:
     description: Version of node to use
     required: false
-    default: '16'
+    default: '18'
 branding:
   icon: life-buoy
   color: orange
