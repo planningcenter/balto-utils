@@ -35,7 +35,6 @@ inputs:
   yarn-version:
     description: Version of yarn to use
     required: false
-    default: "1.22.17"
 branding:
   icon: life-buoy
   color: orange
