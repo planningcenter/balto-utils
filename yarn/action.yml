@@ -16,14 +16,26 @@ runs:
         path: node_modules
         key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-            ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
-    - run: yarn install --frozen-lockfile --prefer-offline --immutable
+          ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
+    - run: corepack enable
+      shell: bash
+    - run: |
+        if [ -n "${{ inputs.yarn-version }}" ]; then
+          yarn set version ${{ inputs.yarn-version }}
+          yarn install --frozen-lockfile --immutable
+        else
+          yarn install --frozen-lockfile --prefer-offline --immutable
+        fi
       shell: bash
 inputs:
   node-version:
     description: Version of node to use
     required: false
-    default: '18'
+    default: "18"
+  yarn-version:
+    description: Version of yarn to use
+    required: false
+    default: "1.22.17"
 branding:
   icon: life-buoy
   color: orange
