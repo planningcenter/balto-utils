@@ -20,8 +20,9 @@ runs:
     - run: corepack enable
       shell: bash
     - run: |
-        if [ -n "${{ inputs.yarn-version }}" ]; then
-          yarn set version ${{ inputs.yarn-version }}
+        yarn_version=$(yarn --version)
+        major_version=$(echo "${yarn_version}" | cut -d. -f1)
+        if [[ "${major_version}" != "1" ]]; then
           yarn install --frozen-lockfile --immutable
         else
           yarn install --frozen-lockfile --prefer-offline --immutable
