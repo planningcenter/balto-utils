@@ -29,7 +29,7 @@ runs:
         yarn_version=$(yarn --version)
         major_version=$(echo "${yarn_version}" | cut -d. -f1)
         if [[ "${major_version}" != "1" ]]; then
-          yarn install --frozen-lockfile --immutable
+          yarn install --immutable
         else
           yarn install --frozen-lockfile --prefer-offline --immutable
         fi
