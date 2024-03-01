@@ -17,8 +17,6 @@ runs:
         key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
-    - run: corepack enable
-      shell: bash
     - run: |
         yarn_version=$(yarn --version)
         major_version=$(echo "${yarn_version}" | cut -d. -f1)
@@ -33,9 +31,6 @@ inputs:
     description: Version of node to use
     required: false
     default: "18"
-  yarn-version:
-    description: Version of yarn to use
-    required: false
 branding:
   icon: life-buoy
   color: orange
