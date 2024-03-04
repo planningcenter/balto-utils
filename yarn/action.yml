@@ -16,14 +16,29 @@ runs:
         path: node_modules
         key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-            ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
-    - run: yarn install --frozen-lockfile --prefer-offline --immutable
+          ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
+    - name: Cache yarn cache
+      id: cache-yarn-cache
+      uses: actions/cache@v3
+      with:
+        path: .yarn/cache
+        key: ${{ runner.os }}-${{ inputs.node-version }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ inputs.node-version }}-yarn-cache-
+    - run: |
+        yarn_version=$(yarn --version)
+        major_version=$(echo "${yarn_version}" | cut -d. -f1)
+        if [[ "${major_version}" != "1" ]]; then
+          yarn install --immutable
+        else
+          yarn install --frozen-lockfile --prefer-offline --immutable
+        fi
       shell: bash
 inputs:
   node-version:
     description: Version of node to use
     required: false
-    default: '18'
+    default: "18"
 branding:
   icon: life-buoy
   color: orange
