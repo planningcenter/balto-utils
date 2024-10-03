@@ -9,23 +9,15 @@ runs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-        cache: 'npm'
-    - name: Cache node_modules
-      id: cache-node-modules
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-            ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
+        cache: npm
+        cache-dependency-path: "**/package-lock.json"
     - run: npm ci
-      if: steps.cache-node-modules.outputs.cache-hit != 'true'
       shell: bash
 inputs:
   node-version:
     description: Version of node to use
     required: false
-    default: '18'
+    default: "18"
 branding:
   icon: life-buoy
   color: orange
