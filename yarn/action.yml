@@ -9,22 +9,8 @@ runs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-    - name: Cache node_modules
-      id: cache-node-modules
-      uses: actions/cache@v3
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-${{ inputs.node-version }}-node-modules-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ inputs.node-version }}-node-modules-
-    - name: Cache yarn cache
-      id: cache-yarn-cache
-      uses: actions/cache@v3
-      with:
-        path: .yarn/cache
-        key: ${{ runner.os }}-${{ inputs.node-version }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ inputs.node-version }}-yarn-cache-
+        cache: yarn
+        cache-dependency-path: "**/yarn.lock"
     - run: |
         yarn_version=$(yarn --version)
         major_version=$(echo "${yarn_version}" | cut -d. -f1)
