@@ -9,6 +9,7 @@ runs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
+        node-version-file: ${{ inputs.node-version-file }}
         cache: npm
         cache-dependency-path: "**/package-lock.json"
     - run: npm ci
@@ -18,6 +19,9 @@ inputs:
     description: Version of node to use
     required: false
     default: "18"
+  node-version-file:
+    description: File containing the version of node to use (e.g. .node-version)
+    required: false
 branding:
   icon: life-buoy
   color: orange
