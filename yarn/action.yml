@@ -8,7 +8,7 @@ runs:
         fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
-        node-version: ${{ inputs.node-version || (inputs.node-version-file == '' && '18') }}
+        node-version: ${{ inputs.node-version || (inputs.node-version-file == '' && '18') || '' }}
         node-version-file: ${{ inputs.node-version-file }}
         cache: yarn
         cache-dependency-path: "**/yarn.lock"
