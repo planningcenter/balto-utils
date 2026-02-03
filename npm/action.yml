@@ -8,7 +8,8 @@ runs:
         fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
-        node-version: ${{ inputs.node-version }}
+        node-version: ${{ inputs.node-version || (inputs.node-version-file == '' && '18') || '' }}
+        node-version-file: ${{ inputs.node-version-file }}
         cache: npm
         cache-dependency-path: "**/package-lock.json"
     - run: npm ci
@@ -17,7 +18,9 @@ inputs:
   node-version:
     description: Version of node to use
     required: false
-    default: "18"
+  node-version-file:
+    description: File containing the version of node to use (e.g. .node-version)
+    required: false
 branding:
   icon: life-buoy
   color: orange
