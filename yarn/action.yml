@@ -12,6 +12,8 @@ runs:
         node-version-file: ${{ inputs.node-version-file }}
         cache: yarn
         cache-dependency-path: "**/yarn.lock"
+    - run: corepack enable
+      shell: bash
     - run: |
         yarn_version=$(yarn --version)
         major_version=$(echo "${yarn_version}" | cut -d. -f1)
